@@ -99,7 +99,7 @@ export default function QuizContainer() {
             </div>
 
             {/* Progress Bar */}
-            <div className="w-full flex gap-4 mb-12 max-w-xl px-4 md:px-0">
+            <div className="w-full flex gap-4 mb-12 max-w-2xl px-4 md:px-0">
                 {QUIZ_QUESTIONS.map((_, idx) => (
                     <div
                         key={idx}
@@ -207,6 +207,13 @@ export default function QuizContainer() {
                     <img src="/navigation/fwd.svg" alt="Next" className="w-6 h-6" />
                 </button>
             </div>
+
+            {/* Cat GIF Decoration */}
+            <img
+                src="/cat.gif"
+                alt="Cute Cat"
+                className="absolute bottom-0 left-8 w-24 md:w-32 z-0 opacity-90 pointer-events-none"
+            />
         </div>
     );
 }
