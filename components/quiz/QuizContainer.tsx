@@ -58,7 +58,7 @@ export default function QuizContainer() {
         <div className="w-full h-full flex flex-col items-center justify-center p-8 md:p-12 relative z-10">
             {/* Header */}
             <h1
-                className="text-4xl md:text-7xl font-dm-serif mb-6 font-normal italic tracking-wide text-center pb-2 pr-1"
+                className="text-4xl md:text-7xl font-dm-serif mb-6 font-normal italic tracking-tighter text-center pb-2 pr-1"
                 style={{
                     background: "linear-gradient(90deg, #15313D 0%, #3CABDA 100%)",
                     WebkitBackgroundClip: "text",
