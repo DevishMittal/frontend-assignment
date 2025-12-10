@@ -1,13 +1,20 @@
 "use client";
 
+import ResultCard from "@/components/quiz/ResultCard";
 import { useState } from "react";
 import { QUIZ_QUESTIONS } from "@/lib/quiz-data";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function QuizContainer() {
+
+interface QuizContainerProps {
+    isFinished: boolean;
+    onFinishChange: (finished: boolean) => void;
+}
+
+export default function QuizContainer({ isFinished, onFinishChange }: QuizContainerProps) {
     const [currentStep, setCurrentStep] = useState(0);
     const [answers, setAnswers] = useState<Record<number, string>>({});
-    const [isFinished, setIsFinished] = useState(false);
+    // const [isFinished, setIsFinished] = useState(false); // Using prop now
     const [hoveredOption, setHoveredOption] = useState<string | null>(null);
     const [direction, setDirection] = useState(0);
 
@@ -37,7 +44,7 @@ export default function QuizContainer() {
             setDirection(1);
             setCurrentStep((prev) => prev + 1);
         } else {
-            setIsFinished(true);
+            onFinishChange(true);
         }
     };
 
@@ -60,16 +67,14 @@ export default function QuizContainer() {
 
     if (isFinished) {
         return (
-            <div className="w-full max-w-3xl rounded-3xl bg-white p-12 text-center shadow-xl">
-                <h2 className="text-4xl font-bold font-serif text-[#1e3a8a]">Your Final score is</h2>
-                <div className="text-6xl font-bold text-[#1e3a8a] my-8">{calculateScore()}%</div>
-                <button
-                    onClick={() => window.location.reload()}
-                    className="px-6 py-2 bg-blue-100 text-blue-900 rounded-lg hover:bg-blue-200"
-                >
-                    Start Again
-                </button>
-            </div>
+            <ResultCard
+                score={calculateScore()}
+                onRetry={() => {
+                    onFinishChange(false);
+                    setCurrentStep(0);
+                    setAnswers({});
+                }}
+            />
         );
     }
 
