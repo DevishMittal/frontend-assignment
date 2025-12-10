@@ -114,19 +114,28 @@ export default function QuizContainer() {
                     </h2>
                 </div>
 
-                <div className="flex flex-col gap-3">
-                    {currentQuestion.options.map((option) => (
-                        <button
-                            key={option}
-                            onClick={() => handleOptionSelect(option)}
-                            className={`w-full p-4 rounded-lg border-2 text-center transition-all ${answers[currentQuestion.id] === option
-                                ? 'border-blue-400 bg-blue-50 text-blue-900 font-medium'
-                                : 'border-transparent bg-gray-50 hover:bg-gray-100 text-gray-700'
-                                }`}
-                        >
-                            {option}
-                        </button>
-                    ))}
+                <div className="flex flex-col gap-[14px] w-full max-w-2xl">
+                    {currentQuestion.options.map((option) => {
+                        const isSelected = answers[currentQuestion.id] === option;
+                        return (
+                            <button
+                                key={option}
+                                onClick={() => handleOptionSelect(option)}
+                                className="w-full p-6 text-center transition-all duration-300 relative group rounded-[10px] border"
+                                style={{
+                                    borderColor: isSelected ? "#96E5FF" : "rgba(150, 229, 255, 0.50)",
+                                    background: isSelected
+                                        ? "linear-gradient(90deg, #C6E9F7 0%, #E5F8FF 100%)"
+                                        : "linear-gradient(90deg, rgba(198, 233, 247, 0.10) 0.09%, rgba(229, 248, 255, 0.10) 99.91%)",
+                                    boxShadow: "none"
+                                }}
+                            >
+                                <span className="text-[18px] font-manrope font-semibold text-[#15313D]">
+                                    {option}
+                                </span>
+                            </button>
+                        );
+                    })}
                 </div>
             </motion.div>
 
