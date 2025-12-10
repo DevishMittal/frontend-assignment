@@ -84,14 +84,12 @@ export default function QuizContainer() {
                         key={idx}
                         className="flex-1 h-2 rounded-full bg-[#E3E3E3] relative overflow-hidden"
                     >
-                        {idx <= currentStep && (
-                            <motion.div
-                                initial={{ width: "0%" }}
-                                animate={{ width: "100%" }}
-                                transition={{ duration: 0.5, ease: "easeInOut" }}
-                                className="absolute top-0 left-0 h-full w-full rounded-full bg-[#15313D]"
-                            />
-                        )}
+                        <motion.div
+                            initial={{ width: "0%" }}
+                            animate={{ width: idx <= currentStep ? "100%" : "0%" }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                            className="absolute top-0 left-0 h-full w-full rounded-full bg-[#15313D]"
+                        />
                     </div>
                 ))}
             </div>
