@@ -13,8 +13,8 @@ export default function Home() {
         style={{
           background: "rgba(255, 255, 255, 0.3)",
           backdropFilter: "blur(100px)",
-          // border: "2px solid rgba(255, 255, 255, 0.5)",
-          boxShadow: "0px 4px 50px rgba(0, 0, 0, 0.1)"
+          border: "1.5px solid rgba(255, 255, 255, 0.5)",
+          boxShadow: "0px 4px 50px rgba(0, 0, 0, 0.3)"
         }}>
         <QuizContainer />
       </div>
