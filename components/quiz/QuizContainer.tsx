@@ -77,13 +77,22 @@ export default function QuizContainer() {
                 </p>
             </div>
 
-            {/* Progress Bar Placeholder */}
-            <div className="w-full flex gap-4 mb-12 max-w-xl">
+            {/* Progress Bar */}
+            <div className="w-full flex gap-4 mb-12 max-w-xl px-4 md:px-0">
                 {QUIZ_QUESTIONS.map((_, idx) => (
                     <div
                         key={idx}
-                        className={`flex-1 h-1.5 rounded-full ${idx <= currentStep ? 'bg-[#1e293b]' : 'bg-gray-200'}`}
-                    />
+                        className="flex-1 h-2 rounded-full bg-[#E3E3E3] relative overflow-hidden"
+                    >
+                        {idx <= currentStep && (
+                            <motion.div
+                                initial={{ width: "0%" }}
+                                animate={{ width: "100%" }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                                className="absolute top-0 left-0 h-full w-full rounded-full bg-[#15313D]"
+                            />
+                        )}
+                    </div>
                 ))}
             </div>
 
