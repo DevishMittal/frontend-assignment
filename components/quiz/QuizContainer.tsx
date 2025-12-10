@@ -214,18 +214,20 @@ export default function QuizContainer({ isFinished, onFinishChange }: QuizContai
             </div>
 
             {/* Cat GIF */}
-            <div className="absolute bottom-0 left-8">
-                <img
-                    src="/bol.svg"
-                    alt="Best of Luck"
-                    className="absolute bottom-[90%] -left-18 w-24 md:w-32  pointer-events-none "
-                />
-                <img
-                    src="/cat.gif"
-                    alt="Cute Cat"
-                    className="w-24 md:w-32 opacity-90 pointer-events-none"
-                />
-            </div>
+            {currentStep === 0 && (
+                <div className="absolute bottom-0 left-8">
+                    <img
+                        src="/bol.svg"
+                        alt="Best of Luck"
+                        className="absolute bottom-[90%] -left-18 w-24 md:w-32  pointer-events-none "
+                    />
+                    <img
+                        src="/cat.gif"
+                        alt="Cute Cat"
+                        className="w-24 md:w-32 opacity-90 pointer-events-none"
+                    />
+                </div>
+            )}
         </div>
     );
 }
