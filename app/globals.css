@@ -8,8 +8,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-dm-serif: var(--font-dm-serif);
+  --font-manrope: var(--font-manrope);
+  --font-inter: var(--font-inter);
 }
 
 @media (prefers-color-scheme: dark) {
