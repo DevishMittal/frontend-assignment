@@ -8,6 +8,7 @@ export default function QuizContainer() {
     const [currentStep, setCurrentStep] = useState(0);
     const [answers, setAnswers] = useState<Record<number, string>>({});
     const [isFinished, setIsFinished] = useState(false);
+    const [hoveredOption, setHoveredOption] = useState<string | null>(null);
 
     const handleOptionSelect = (option: string) => {
         setAnswers((prev) => ({ ...prev, [QUIZ_QUESTIONS[currentStep].id]: option }));
@@ -117,16 +118,25 @@ export default function QuizContainer() {
                 <div className="flex flex-col gap-[14px] w-full max-w-2xl">
                     {currentQuestion.options.map((option) => {
                         const isSelected = answers[currentQuestion.id] === option;
+                        const isHovered = hoveredOption === option;
+
+                        let backgroundStyle = "linear-gradient(90deg, rgba(198, 233, 247, 0.10) 0.09%, rgba(229, 248, 255, 0.10) 99.91%)";
+                        if (isSelected) {
+                            backgroundStyle = "linear-gradient(90deg, #C6E9F7 0%, #E5F8FF 100%)";
+                        } else if (isHovered) {
+                            backgroundStyle = "linear-gradient(90deg, rgba(198, 233, 247, 0.60) 0.09%, rgba(229, 248, 255, 0.60) 99.91%)";
+                        }
+
                         return (
                             <button
                                 key={option}
                                 onClick={() => handleOptionSelect(option)}
+                                onMouseEnter={() => setHoveredOption(option)}
+                                onMouseLeave={() => setHoveredOption(null)}
                                 className="w-full p-6 text-center transition-all duration-300 relative group rounded-[10px] border"
                                 style={{
                                     borderColor: isSelected ? "#96E5FF" : "rgba(150, 229, 255, 0.50)",
-                                    background: isSelected
-                                        ? "linear-gradient(90deg, #C6E9F7 0%, #E5F8FF 100%)"
-                                        : "linear-gradient(90deg, rgba(198, 233, 247, 0.10) 0.09%, rgba(229, 248, 255, 0.10) 99.91%)",
+                                    background: backgroundStyle,
                                     boxShadow: "none"
                                 }}
                             >
