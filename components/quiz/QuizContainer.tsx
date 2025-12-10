@@ -208,12 +208,19 @@ export default function QuizContainer() {
                 </button>
             </div>
 
-            {/* Cat GIF Decoration */}
-            <img
-                src="/cat.gif"
-                alt="Cute Cat"
-                className="absolute bottom-0 left-8 w-24 md:w-32 z-0 opacity-90 pointer-events-none"
-            />
+            {/* Cat GIF */}
+            <div className="absolute bottom-0 left-8">
+                <img
+                    src="/bol.svg"
+                    alt="Best of Luck"
+                    className="absolute bottom-[90%] -left-18 w-24 md:w-32  pointer-events-none "
+                />
+                <img
+                    src="/cat.gif"
+                    alt="Cute Cat"
+                    className="w-24 md:w-32 opacity-90 pointer-events-none"
+                />
+            </div>
         </div>
     );
 }

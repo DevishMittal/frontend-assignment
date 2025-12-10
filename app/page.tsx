@@ -16,7 +16,7 @@ export default function Home() {
           border: "1.5px solid rgba(255, 255, 255, 0.5)",
           boxShadow: "0px 4px 50px rgba(0, 0, 0, 0.3)"
         }}>
-        <div className="w-full h-full rounded-[42px] relative overflow-hidden"
+        <div className="w-full h-full rounded-[42px] relative"
           style={{ background: "#F4FDFF" }}>
           <QuizContainer />
         </div>
