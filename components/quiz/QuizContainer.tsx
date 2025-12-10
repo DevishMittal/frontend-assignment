@@ -102,8 +102,14 @@ export default function QuizContainer() {
                 exit={{ opacity: 0, x: -20 }}
                 className="w-full max-w-2xl"
             >
-                <div className="bg-[#dbeafe] rounded-lg p-6 mb-6 text-center">
-                    <h2 className="text-xl font-medium text-[#1e293b]">
+                <div
+                    className="rounded-[10px] p-6 mb-5 text-center border relative"
+                    style={{
+                        background: "linear-gradient(90deg, #C6E9F7 0%, #E5F8FF 100%)",
+                        borderColor: "#96E5FF"
+                    }}
+                >
+                    <h2 className="text-xl md:text-xl font-manrope font-semibold text-[#15313D] leading-tight">
                         {currentQuestion.id}. {currentQuestion.text}
                     </h2>
                 </div>
