@@ -11,7 +11,7 @@ export default function ResultCard({ score, onRetry }: ResultCardProps) {
     const [animatedScore, setAnimatedScore] = useState(0);
 
     useEffect(() => {
-        const duration = 2000; // 2 seconds
+        const duration = 900; 
         const steps = 60;
         const intervalTime = duration / steps;
 
@@ -86,7 +86,6 @@ export default function ResultCard({ score, onRetry }: ResultCardProps) {
                 </span>
             </button>
 
-            {/* Removed the borders and simplified container as requested */}
         </div>
     );
 }
