@@ -144,16 +144,29 @@ export default function QuizContainer() {
                 <button
                     onClick={handlePrev}
                     disabled={currentStep === 0}
-                    className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-100 text-blue-900 disabled:opacity-50 hover:bg-blue-200"
+                    className="flex items-center justify-center rounded-[10px] transition-all"
+                    style={{
+                        width: '53px',
+                        height: '50px',
+                        border: '1px solid rgba(150, 229, 255, 0.05)',
+                        background: 'linear-gradient(90deg, #C6E9F7 0.09%, #E5F8FF 99.91%)',
+                        opacity: currentStep === 0 ? 0.3 : 1
+                    }}
                 >
-                    ←
+                    <img src="/navigation/bwd.svg" alt="Previous" className="w-6 h-6" />
                 </button>
                 <button
                     onClick={handleNext}
                     disabled={!answers[currentQuestion.id]}
-                    className="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-100 text-blue-900 disabled:opacity-50 hover:bg-blue-200"
+                    className="flex items-center justify-center rounded-[10px] transition-all disabled:opacity-50"
+                    style={{
+                        width: '53px',
+                        height: '50px',
+                        border: '1px solid rgba(150, 229, 255, 0.05)',
+                        background: 'linear-gradient(90deg, #C6E9F7 0.09%, #E5F8FF 99.91%)',
+                    }}
                 >
-                    →
+                    <img src="/navigation/fwd.svg" alt="Next" className="w-6 h-6" />
                 </button>
             </div>
         </div>
